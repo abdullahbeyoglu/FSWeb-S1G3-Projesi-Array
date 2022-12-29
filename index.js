@@ -40,10 +40,11 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(dizi1){
+let kopya = [...dizi1];
+return kopya
 }
-
+console.log(kopyala(orijinalTatlar));
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,10 +57,14 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(gelenData){
+  if (gelenData.length == 25) {
+    return true
+  } else {
+    return false
+  }
 }
-
+console.log(dizi25Cesitmi(orijinalTatlar));
 
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
@@ -74,9 +79,11 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(tatlar, ekleme){
+  tatlar.unshift(ekleme);
+  return tatlar;
 }
+console.log(cesitEkle(orijinalTatlar,'Kakule'))
 
 
 /* Cörev 4:
@@ -92,10 +99,11 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(dizi1){
+  dizi1.pop();
+  return dizi1;
 }
-
+console.log(sonCesitiKaldir(orijinalTatlar));
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -108,10 +116,10 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(tatlar, secilen){
+  return tatlar[secilen];
 }
-
+console.log(indekstekiCesitiGetir(orijinalTatlar,3)); 
 
 /* Görev 6:
 
@@ -128,9 +136,24 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar, lezzet){
+for (var i=0; i<=tatlar.length; i++) {
+  if (tatlar[i] == lezzet ) {
+    tatlar.splice(i,1);
+
+  }
+
 }
+return tatlar
+}
+console.log(ismeGoreCesitCikar(orijinalTatlar, "Tarçın"));
+
+/*function ismeGoreCesitCikar(tatlar, lezzet){
+  tatlar.splice(lezzet);
+  return tatlar;
+}
+console.log(ismeGoreCesitCikar(orijinalTatlar));
+*/
 
 
 /* Görev 7:
@@ -154,10 +177,17 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar, filtre){
+let bilgi = [];
+for (let i = 0; i< tatlar.length; i++) {
+  if(tatlar[i].includes(filtre)) {
+    bilgi.push(tatlar[i]);
+  }
 }
 
+return bilgi
+}
+console.log(ismeGoreFiltrele(orijinalTatlar, "Çikolata"));
 
 
 /* ALIŞTIRMA */
